@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        run: chmod  -R 775 .
 
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
