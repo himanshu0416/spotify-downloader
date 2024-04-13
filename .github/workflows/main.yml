@@ -10,22 +10,18 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        env: 
-          CI: false
+        uses: actions/checkout@v4
+        
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
           workdir: src
           buildozer_version: stable
-        env:
-          CI: false
-
+        
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: package
           path: ${{ steps.buildozer.outputs.filename }}
-        env:
-          CI: false
+        
